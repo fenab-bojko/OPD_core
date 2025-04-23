@@ -15,16 +15,23 @@
 Ответ: 
 будем обговаривать пока выглядит так
 interface IResponse {
-    data: Body[] | null;
+    data: IDataItem[] | null;
     status: number;
     message: string;
 }
 
-Body:
-interface Body {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
+interface IDataItem {
+    id: string;
+    title: string;
+    description: string;
+    picture: string;
+    executor: string;
+    company: string;
+    logoCompany: string;
+    price: number;
+    percentageOfReadiness: number;
+    status: 'progress' | 'done' | 'failed';
+    dateStart: string;
+    dateEnd: string;
 }
 
