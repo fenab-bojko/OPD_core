@@ -1,8 +1,16 @@
 export interface ICardItem {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
+    id: string;
+    title: string;
+    description: string;
+    picture: string;
+    executor: string;
+    company: string;
+    logoCompany: string;
+    price: number;
+    percentageOfReadiness: number;
+    status: 'progress' | 'done' | 'failed';
+    dateStart: string;
+    dateEnd: string;
 }
 
 export interface IResponse {

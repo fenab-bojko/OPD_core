@@ -1,4 +1,8 @@
 Проект написан для курса по ОПД 
+Запуск сервера nest start
+
+За данными ходить к http://localhost:3000/...
+пример: http://localhost:3000/api/projects
 
 Ручки:
   GET: /api/projects - получение списка всех проектов

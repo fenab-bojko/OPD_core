@@ -1,24 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { ICardItem, IResponse } from './types';
+import { dataItems } from '../../dataFiles/data';
 
 @Injectable()
 export class CardItemsService {
   async findAll(): Promise<IResponse> {
     return {
-        data:[ 
-            {
-                id: '1',
-                title: 'Project 1',
-                description: 'Description 1',
-                image: 'https://via.placeholder.com/150',
-            },
-            {
-                id: '2',
-                title: 'Project 2',
-                description: 'Description 2',
-                image: 'https://via.placeholder.com/150',
-            },
-        ],
+        data: dataItems,
         status: 200,
         message: 'Items fetched successfully',
     }
