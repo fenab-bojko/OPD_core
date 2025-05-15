@@ -13,6 +13,17 @@ export interface IDataItem {
     dateEnd: string;
 }
 
+export interface IListItem {
+    totalReadiness: number; // По-идее выводить это надо с процентом на конце 
+    teamLoaded: number;
+}
+
+export const listItems: IListItem[] = [
+    {
+    totalReadiness: 0,
+    teamLoaded: 0
+    }
+];
 export const dataItems: IDataItem[] = [
     {
         id: '1',

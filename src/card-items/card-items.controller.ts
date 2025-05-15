@@ -11,9 +11,14 @@ export class CardItemsController {
     return this.cardItemsService.findAll();
   }
 
+  @Get("/percentageOfReadiness")
+  async totalReadiness() {
+    return this.cardItemsService.totalReadiness(); //понаблюдать 
+  }
+
   @Get(":id")
   async findOne(@Param("id") id: string) {
-    return this.cardItemsService.findOne(id);
+    return this.cardItemsService.findOne(id);   
   }
 
   @Post()
