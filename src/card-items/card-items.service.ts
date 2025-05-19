@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ICardItem, IResponse } from './types';
+import { ICardItem, IResponse, IPage, IPageItem} from './types';
 import { dataItems } from '../../dataFiles/data';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class CardItemsService {
         status: 200,
         message: 'Items fetched successfully',
     }
-  }
+  } 
   
   async findOne(id: string): Promise<IResponse> {
     const item = await this.findAll().then(({ data }) => data?.find((item) => item.id === id));
@@ -24,6 +24,23 @@ export class CardItemsService {
 
     return {
         data: [item],
+        status: 200,
+        message: 'Item fetched successfully',
+    }
+  }
+
+    async totalReadiness(): Promise<IPage> { //IResponseReadiness чтобы возвращал объект в дате со значением готовности 
+    const total = dataItems.filter(item => item.percentageOfReadiness).reduce((sum, current) => sum + current.percentageOfReadiness, 0)/dataItems.length; //api/project/readiness метод возвращает - сделать
+    if (total==0) {
+      return {
+        data: null,
+        status: 203,
+        message: 'No projects exist yet',
+      };
+    }
+
+    return {
+        data: total,
         status: 200,
         message: 'Item fetched successfully',
     }

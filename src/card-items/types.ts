@@ -13,8 +13,19 @@ export interface ICardItem {
     dateEnd: string;
 }
 
-export interface IResponse {
-    data: ICardItem[] | null;
+export interface IPageItem {
+    totalReadiness: number; // По-идее выводить это надо с процентом на конце 
+    teamLoaded: number;
+}
+
+export interface IResponse {        
+    data: ICardItem[] | null;       //Сервис Insomnia для проверки
+    status: number;
+    message: string;
+}
+
+export interface IPage {
+    data: IPageItem[] | null | number;
     status: number;
     message: string;
 }
